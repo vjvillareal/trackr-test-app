@@ -4,18 +4,18 @@
     <p class="page-details-text">Create a free account to start tracking your time</p>
   </div>
   <div class="forms-container">
-    <mat-form-field class="mat-form-field-custom wide-forms">
-      <mat-label>Name</mat-label>
-      <input matInput type="text" required>
-    </mat-form-field>
-    <mat-form-field class="mat-form-field-custom wide-forms">
-      <mat-label>Email</mat-label>
-      <input matInput type="email" required>
-    </mat-form-field>
-    <mat-form-field class="mat-form-field-custom wide-forms">
-      <mat-label>Password</mat-label>
-      <input matInput type="password" required>
-    </mat-form-field>
+    <div class="custom-form-container">
+      <label class="custom-input-label" for="name">Name</label>
+      <input type="text" id="name" class="custom-input-form wide-custom-form">
+    </div>
+    <div class="custom-form-container">
+      <label class="custom-input-label" for="email">Email</label>
+      <input type="email" id="email" class="custom-input-form wide-custom-form">
+    </div>
+    <div class="custom-form-container">
+      <label class="custom-input-label" for="password">Password</label>
+      <input type="password" id="password" class="custom-input-form wide-custom-form">
+    </div>
   </div>
   <a [routerLink]="['/home/tracking']">
     <button mat-flat-button class="custom-btn wide-forms">Sign up</button>

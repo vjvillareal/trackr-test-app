@@ -23,7 +23,7 @@
 }
 
 .divider-container {
-  width: 250px;
+  width: 280px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -40,4 +40,8 @@
   flex-grow: 2;
   height: 1px;
   background: #b8b8b8;
+}
+
+.custom-form-container {
+  margin-bottom: 12px;
 }

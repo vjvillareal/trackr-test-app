@@ -4,14 +4,14 @@
     <p class="page-details-text">Enter your credentials to access your account</p>
   </div>
   <div class="forms-container">
-    <mat-form-field class="mat-form-field-custom wide-forms">
-      <mat-label>Email</mat-label>
-      <input matInput type="email">
-    </mat-form-field>
-    <mat-form-field class="mat-form-field-custom wide-forms">
-      <mat-label>Password</mat-label>
-      <input matInput type="password">
-    </mat-form-field>
+    <div class="custom-form-container">
+      <label class="custom-input-label" for="email">Email</label>
+      <input type="email" id="email" class="custom-input-form wide-custom-form">
+    </div>
+    <div class="custom-form-container">
+      <label class="custom-input-label" for="password">Password</label>
+      <input type="password" id="password" class="custom-input-form wide-custom-form">
+    </div>
     <div class="checkbox-container">
       <input type="checkbox" id="remember">
       <label for="remember">Remember me</label>

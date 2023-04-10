@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { TrackingComponent } from './tracking.component';
 import { TimeTrackerComponent } from 'src/app/components/home/tracking/time-tracker/time-tracker.component';
 import { TrackedTimeComponent } from 'src/app/components/home/tracking/tracked-time/tracked-time.component';
+import { AngularMaterialModule } from 'src/app/angular-material.module';
 
 
 
@@ -13,7 +14,8 @@ import { TrackedTimeComponent } from 'src/app/components/home/tracking/tracked-t
     TrackedTimeComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    AngularMaterialModule
   ],
   exports: [
     TrackingComponent,

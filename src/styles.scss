@@ -74,6 +74,40 @@ body {
   accent-color: #000b36;
 }
 
+div[data-lastpass-icon-root] {
+  display: none;
+}
+
+.custom-form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-input-label {
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+}
+
+.custom-input-form {
+  padding: 0.5rem 0.75rem;
+  border: none;
+  background: #f7f7f8;
+  border-radius: 6px;
+  border: 2px solid rgba(0,11,54, 0);
+  box-shadow: 0 0 2px rgba(0,11,54, 0);
+  transition: all 0.2s ease-in-out;
+
+  &:focus {
+    outline: none;
+    border: 2px solid rgba(0,11,54, 0.5);
+    box-shadow: 0 0 1px rgba(0,11,54, 0.75);
+  }
+}
+
+.wide-custom-form {
+  width: 250px;
+}
+
 // ALL ANGULAR MATERIAL CUSTOM CSS - START
 .mat-form-field-custom {
   font-size: 0.9rem !important;
@@ -83,6 +117,10 @@ body {
   background-color: #000b36 !important;
 }
 .mat-focused .mat-form-field-label {
+  color: #000b36 !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
   color: #000b36 !important;
 }
 
@@ -98,6 +136,12 @@ body {
 }
 
 .wide-forms {
-  width: 250px;
+  width: 280px;
+}
+
+.mat-form-rmv-padding {
+  .mat-form-field-wrapper {
+    padding-bottom: 0 !important;
+  }
 }
 // ALL ANGULAR MATERIAL CUSTOM CSS - END
