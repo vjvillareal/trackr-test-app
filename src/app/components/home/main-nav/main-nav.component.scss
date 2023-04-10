@@ -1,0 +1,33 @@
+.main-nav-container {
+  width: calc(100% - 3rem);
+  background: white;
+  padding: 0.5em 1.5rem;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 1px 4px;
+}
+
+.main-nav-details {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-text {
+  font-size: 1.25rem;
+}
+
+.resize-btn {
+  width: 50px !important;
+  min-width: unset !important;
+}
+
+.btn-icon {
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+}
+
+.no-decoration {
+  text-decoration: none;
+}

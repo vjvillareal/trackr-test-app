@@ -1,0 +1,21 @@
+<div class="main-nav-container">
+  <div class="main-nav-details">
+    <p class="logo-text">Trackr</p>
+    <div>
+      <a [routerLink]="['/home/tracking']" class="no-decoration">
+        <button mat-flat-button>Time Tracker</button>
+      </a>
+      <a [routerLink]="['/home/projects']" class="no-decoration">
+        <button mat-flat-button>Projects</button>
+      </a>
+    </div>
+    <button mat-button [matMenuTriggerFor]="menu" class="resize-btn">
+      <mat-icon class="material-icons btn-icon">settings</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <a [routerLink]="['/login']" class="no-decoration">
+        <button mat-menu-item>Sign out</button>
+      </a>
+    </mat-menu>
+  </div>
+</div>
