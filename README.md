@@ -1,27 +1,13 @@
-# TrackrTestApp
+# Trackr (Test App)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
+## Description
 
-## Development server
+Welcome! This is a free time-tracking app made solely with Angular framework.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+There is a quote that says: “Time is non-refundable, use it with intention.” Whether you are a freelancer or a business owner, a time tracking app is an essential tool to help you and your team: from simply getting more things done to recording billable hours, it can assist you to become more efficient at doing your job.
 
-## Code scaffolding
+This is a simple and easy-to-use time tracking app suited to people who are not looking for advanced features. It lets you track in real time when starting various tasks and projects. You can also edit or manually add time, in case you forget to launch the timer or accidentally leave the timer running. For a more detailed record or invoicing-related matters, you can manage your tasks by separating them into different projects – giving you a complete overview of your work.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Instructions
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
