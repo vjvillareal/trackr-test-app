@@ -18,3 +18,86 @@ body {
   margin: 0;
   background: #f6f8fa;
 }
+
+.logo-text {
+  margin: 0;
+  font-family: 'Playfair Display', serif !important;
+  color: #000b36;
+}
+
+.box-container {
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 1px 4px;
+  border-radius: 0.75em;
+}
+
+.form-container {
+  background: white;
+  display: inline-flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.header-texts-container {
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+.page-header-text {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.page-details-text {
+  margin: 0.25rem 0;;
+  color: #7c7c7c;
+  font-size: 0.9rem;
+}
+
+.bold-text {
+  font-weight: 500;
+}
+
+.checkbox-container {
+  display: flex;
+
+  label {
+    font-size: 0.9rem;
+    color: #7c7c7c;
+  }
+}
+
+#remember {
+  accent-color: #000b36;
+}
+
+// ALL ANGULAR MATERIAL CUSTOM CSS - START
+.mat-form-field-custom {
+  font-size: 0.9rem !important;
+}
+
+.mat-focused .mat-form-field-ripple {
+  background-color: #000b36 !important;
+}
+.mat-focused .mat-form-field-label {
+  color: #000b36 !important;
+}
+
+.custom-btn {
+  height: 40px;
+  background-color: #000b36 !important;
+  color: #fff;
+}
+
+.secondary-flat-btn {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.wide-forms {
+  width: 250px;
+}
+// ALL ANGULAR MATERIAL CUSTOM CSS - END

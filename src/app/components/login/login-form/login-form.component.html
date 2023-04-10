@@ -1,1 +1,26 @@
-<p>login-form works!</p>
+<div class="form-container box-container">
+  <div class="header-texts-container">
+    <p class="page-header-text">Hello! Welcome back</p>
+    <p class="page-details-text">Enter your credentials to access your account</p>
+  </div>
+  <div class="forms-container">
+    <mat-form-field class="mat-form-field-custom wide-forms">
+      <mat-label>Email</mat-label>
+      <input matInput type="email">
+    </mat-form-field>
+    <mat-form-field class="mat-form-field-custom wide-forms">
+      <mat-label>Password</mat-label>
+      <input matInput type="password">
+    </mat-form-field>
+    <div class="checkbox-container">
+      <input type="checkbox" id="remember">
+      <label for="remember">Remember me</label>
+    </div>
+  </div>
+  <a [routerLink]="['/home/tracking']">
+    <button mat-flat-button class="custom-btn wide-forms">Log in</button>
+  </a>
+  <a [routerLink]="['/register']">
+    <button mat-flat-button class="secondary-flat-btn">Don't have an account? <span class="bold-text">Sign up</span></button>
+  </a>
+</div>
