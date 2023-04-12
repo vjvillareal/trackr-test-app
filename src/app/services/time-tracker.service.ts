@@ -11,20 +11,26 @@ export class TimeTrackerService {
 
   constructor() { }
 
-  startCounter() {
+  startCounter(): Date {
     this.timerInterval = setInterval(() => {
       this.seconds++;
       this.timeFormatter(this.seconds);
     }, 1000);
+    return new Date();
   }
 
-  stopCounter() {
+  getDuration(): number {
+    return this.seconds;
+  }
+
+  stopCounter(): Date {
     clearInterval(this.timerInterval);
     this.seconds = 0;
     this.timeFormatter(this.seconds);
+    return new Date();
   }
 
-  timeFormatter(sec: number): any {
+  timeFormatter(sec: number): void {
     let hr = 0
     let min = 0;
     while(sec >= 3600) {
