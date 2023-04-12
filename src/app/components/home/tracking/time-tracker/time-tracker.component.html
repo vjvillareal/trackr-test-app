@@ -4,8 +4,7 @@
     <mat-icon class="icon-btn">folder</mat-icon>
   </div>
   <p class="time-text">
-    
-    <span>{{ hrs }}</span>:<span>{{ mins }}</span>:<span>{{ sec }}</span>
+    {{ _timeTrackerService.currentlyTracking }}
   </p>
   <div *ngIf="start" class="toggle-btn-container" (click)="startTimer()">
     <mat-icon  class="icon-play-btn">play_arrow</mat-icon>
