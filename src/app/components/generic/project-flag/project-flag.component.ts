@@ -11,7 +11,6 @@ export class ProjectFlagComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.task)
   }
 
 }

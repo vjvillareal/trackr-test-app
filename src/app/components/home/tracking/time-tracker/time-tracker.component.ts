@@ -96,7 +96,6 @@ export class TimeTrackerComponent implements OnInit {
   }
 
   getProjectValue() {
-    console.log(this.taskForm.controls['project'].value)
     if(this.taskForm.controls['project'].value == 'no-project') {
       this.hasProject = true;
       this.taskForm.patchValue({ project: "" })
