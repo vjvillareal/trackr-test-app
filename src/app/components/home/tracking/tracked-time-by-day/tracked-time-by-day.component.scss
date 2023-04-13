@@ -1,0 +1,48 @@
+.task-container {
+  background: white;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.85rem 1.5rem;
+}
+
+.date-title {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.task-title {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.task-record {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1.5rem;
+
+  &:not(:last-child) {
+    box-shadow: rgb(235 231 235) 0px -1px 0px 0px inset;
+  }
+}
+
+.task-record-right {
+  min-width: 230px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+.task-start-stop,
+.task-duration {
+  text-align: center;
+}

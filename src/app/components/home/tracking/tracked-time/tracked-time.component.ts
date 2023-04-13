@@ -17,6 +17,7 @@ export class TrackedTimeComponent implements OnInit {
   ngOnInit(): void {
     this.records = this._trackedTimeService.getGroupedByDate();
     console.log(this.records)
+    console.log(typeof this.records)
   }
 
 }

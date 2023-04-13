@@ -1,0 +1,14 @@
+<div *ngFor="let record of timeRecord" class="task-container box-container">
+  <div class="task-header">
+    <p class="date-title">{{ record[0] | date: 'EEEE, MMM, d'}}</p>
+  </div>
+  <div *ngFor="let task of record[1]" class="task-record">
+    <p class="task-title">{{ task.taskName }}</p>
+    <div class="task-record-right">
+      <div class="task-start-stop">
+        <span>{{ task.startDateDisplay }}</span> - <span>{{ task.stopDateDisplay }}</span>
+      </div>
+      <span class="task-duration">{{ task.durationDisplay }}</span>
+    </div>
+  </div>
+</div>
