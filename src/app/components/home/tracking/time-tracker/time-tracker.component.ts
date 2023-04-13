@@ -21,6 +21,16 @@ export class TimeTrackerComponent implements OnInit {
     project: ['', Validators.required]
   });
 
+  projects: any = [
+    { value: 'no-project', viewValue: 'No Project', color: "" },
+    { value: 'project-synergy', viewValue: 'Project Synergy', color: "#d6e6ff" },
+    { value: 'project-mecha', viewValue: 'Project Mecha', color: "#fff8b4" },
+    { value: 'celestial-interface', viewValue: 'Celestial Interface', color: "#d5ffb3" },
+    { value: 'project-aurora', viewValue: 'Project Aurora', color: "#fce2c7" },
+  ];
+
+  hasProject: boolean = true;
+
   constructor(
     public _timeTrackerService: TimeTrackerService,
     private _trackedTimeService: TrackedTimeService,
@@ -44,12 +54,17 @@ export class TimeTrackerComponent implements OnInit {
     this.toggleStartStop();
     this.durationInSeconds = this._timeTrackerService.getDuration();
     this.stopTime = this._timeTrackerService.stopCounter();
-    var durationDisplay = new Date(1000 * this.durationInSeconds).toISOString().substring(11, 19);
-    this.addNewTime(this.startTime, this.stopTime, this.startTime.toLocaleDateString("en-US"), durationDisplay, this.durationInSeconds, this.taskForm.controls['taskName'].value!);
+    let durationDisplay = new Date(1000 * this.durationInSeconds).toISOString().substring(11, 19);
+    let projectName = this.taskForm.controls['project'].value!;
+    const foundProject = this.projects.find((proj: any) => {
+      return proj['value'] == projectName;
+    })
+    this.addNewTime(this.startTime, this.stopTime, this.startTime.toLocaleDateString("en-US"), durationDisplay, this.durationInSeconds, this.taskForm.controls['taskName'].value!, projectName, foundProject['color']);
     this.clearAllValues();
   }
 
-  addNewTime(startDate: any, stopDate: any, date: any, durationDisplay: any, durationInSec: any, taskName: string) {
+  addNewTime(startDate: any, stopDate: any, date: any, durationDisplay: any, durationInSec: any, taskName: string, project: string, color: string) {
+    if(project === '') { project = "no-project"; }
     let startDispHrFormat = startDate.getHours() % 12 || 12;
     let startDispMinFormat = startDate.getMinutes() < 10 ? '0' + startDate.getMinutes() : startDate.getMinutes();
     let stopDispHrFormat = stopDate.getHours() % 12 || 12;
@@ -62,7 +77,9 @@ export class TimeTrackerComponent implements OnInit {
       "date": date,
       "durationDisplay": durationDisplay,
       "durationInSec": durationInSec,
-      "taskName": taskName
+      "taskName": taskName,
+      "project": project,
+      "projectColor": color
     };
     this._trackedTimeService.storeToLocalStorage(trackedObj);
   }
@@ -71,6 +88,18 @@ export class TimeTrackerComponent implements OnInit {
     this.durationInSeconds = 0;
     this.startTime = null;
     this.stopTime = null;
-    this.taskForm.patchValue({ taskName: "" })
+    this.taskForm.patchValue({ taskName: "" });
+  }
+
+  openSelect(selectRef: any) {
+    selectRef.open();    
+  }
+
+  getProjectValue() {
+    console.log(this.taskForm.controls['project'].value)
+    if(this.taskForm.controls['project'].value == 'no-project') {
+      this.hasProject = true;
+      this.taskForm.patchValue({ project: "" })
+    } else { this.hasProject = false; }
   }
 }

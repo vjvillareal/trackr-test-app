@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
 
 let ngMaterialComponents = [
   MatFormFieldModule,
@@ -14,7 +15,8 @@ let ngMaterialComponents = [
   MatMenuModule,
   MatIconModule,
   ReactiveFormsModule,
-  FormsModule
+  FormsModule,
+  MatSelectModule
 ];
 
 @NgModule({

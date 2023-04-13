@@ -144,4 +144,17 @@ div[data-lastpass-icon-root] {
     padding-bottom: 0 !important;
   }
 }
+
+.no-arrow-select {
+  .mat-select-arrow-wrapper {
+    display: none;
+  }
+} 
+
+.mat-select-panel {
+  border-radius: 8px;
+  box-shadow: rgb(0 0 0 / 9%) 0px 1px 4px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 // ALL ANGULAR MATERIAL CUSTOM CSS - END
