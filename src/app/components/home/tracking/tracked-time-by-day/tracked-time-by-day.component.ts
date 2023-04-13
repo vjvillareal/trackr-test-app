@@ -12,7 +12,7 @@ export class TrackedTimeByDayComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    let records = this.timeRecord[0][1];
+    let records = this.timeRecord[1];
     let totalDuration = records.reduce((sum: any, rec: any) => {
       return sum + rec['durationInSec']
     }, 0);

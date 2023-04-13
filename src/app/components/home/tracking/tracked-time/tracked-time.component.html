@@ -1,1 +1,2 @@
-<app-tracked-time-by-day [timeRecord]="records"></app-tracked-time-by-day>
+<app-tracked-time-by-day *ngFor="let record of records" [timeRecord]="record"></app-tracked-time-by-day>
+<br>

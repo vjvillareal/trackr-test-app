@@ -27,7 +27,7 @@ export class TrackedTimeService {
       byDate[item.date] = date;
       return byDate;
     }, []);
-    return Object.entries(byDate);
+    return Object.entries(byDate).reverse();
     } else { return []; }
   }
 }

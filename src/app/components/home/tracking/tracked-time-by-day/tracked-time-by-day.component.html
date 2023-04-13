@@ -1,15 +1,15 @@
-<div *ngFor="let record of timeRecord" class="task-container box-container">
+<div class="task-container box-container">
   <div class="task-header">
-    <p class="date-title">{{ record[0] | date: 'EEEE, MMM, d' }}</p>
+    <p class="date-title">{{ timeRecord[0] | date: 'EEEE, MMM, d' }}</p>
     <p class="date-title">{{ totalDuration }}</p>
   </div>
-  <div *ngFor="let task of record[1]" class="task-record">
+  <div *ngFor="let task of timeRecord[1]" class="task-record">
     <div>
       <p class="task-title">{{ task.taskName }}</p>
       <p *ngIf="task.taskName == ''" class="task-title no-name">No description</p>
     </div>
     <div class="task-record-right">
-      <div class="task-start-stop">
+      <div class="task-start-stop-time">
         <span>{{ task.startDateDisplay }}</span> - <span>{{ task.stopDateDisplay }}</span>
       </div>
       <span class="task-duration">{{ task.durationDisplay }}</span>
