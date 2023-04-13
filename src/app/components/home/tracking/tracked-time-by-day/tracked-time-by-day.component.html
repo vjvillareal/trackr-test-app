@@ -3,7 +3,10 @@
     <p class="date-title">{{ record[0] | date: 'EEEE, MMM, d'}}</p>
   </div>
   <div *ngFor="let task of record[1]" class="task-record">
-    <p class="task-title">{{ task.taskName }}</p>
+    <div>
+      <p class="task-title">{{ task.taskName }}</p>
+      <p *ngIf="task.taskName == ''" class="task-title no-name">No description</p>
+    </div>
     <div class="task-record-right">
       <div class="task-start-stop">
         <span>{{ task.startDateDisplay }}</span> - <span>{{ task.stopDateDisplay }}</span>
