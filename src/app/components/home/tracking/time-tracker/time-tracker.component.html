@@ -1,5 +1,5 @@
-<div class="time-tracker-container box-container">
-  <input type="text" class="custom-input-form" placeholder="What are you working on?">
+<div class="time-tracker-container box-container" [formGroup]="taskForm">
+  <input type="text" class="custom-input-form" formControlName="taskName" placeholder="What are you working on?">
   <div class="icon-btn-container">
     <mat-icon class="icon-btn">folder</mat-icon>
   </div>
