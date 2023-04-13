@@ -1,0 +1,19 @@
+.project-report-container {
+  background: white;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.report-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.85rem 1.5rem;
+  padding-bottom: 0.25rem;
+}
+
+.report-header-text {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.5;
+  font-weight: 500;
+}

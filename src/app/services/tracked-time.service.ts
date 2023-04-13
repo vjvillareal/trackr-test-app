@@ -30,4 +30,17 @@ export class TrackedTimeService {
     return Object.entries(byDate).reverse();
     } else { return []; }
   }
+
+  getGroupedByProject() {
+    let savedRecords = this.fetchFromLocalStorage();
+    if(savedRecords.length >= 1) {
+    let byProject = savedRecords.reduce((byProject: any, item: any) => {
+      let project = (byProject[item.project] || []);
+      project.push(item);
+      byProject[item.project] = project;
+      return byProject;
+    }, []);
+    return Object.entries(byProject).reverse();
+    } else { return []; }
+  }
 }
