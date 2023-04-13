@@ -22,7 +22,7 @@ export class TimeTrackerComponent implements OnInit {
   });
 
   projects: any = [
-    { value: 'no-project', viewValue: 'No Project', color: "" },
+    { value: 'no-project', viewValue: 'No Project', color: "no-color" },
     { value: 'project-synergy', viewValue: 'Project Synergy', color: "#d6e6ff" },
     { value: 'project-mecha', viewValue: 'Project Mecha', color: "#fff8b4" },
     { value: 'celestial-interface', viewValue: 'Celestial Interface', color: "#d5ffb3" },
@@ -56,15 +56,15 @@ export class TimeTrackerComponent implements OnInit {
     this.stopTime = this._timeTrackerService.stopCounter();
     let durationDisplay = new Date(1000 * this.durationInSeconds).toISOString().substring(11, 19);
     let projectName = this.taskForm.controls['project'].value!;
-    const foundProject = this.projects.find((proj: any) => {
+    if(projectName === '') { projectName = "no-project"; }
+    let foundProject = this.projects.find((proj: any) => {
       return proj['value'] == projectName;
-    })
+    });
     this.addNewTime(this.startTime, this.stopTime, this.startTime.toLocaleDateString("en-US"), durationDisplay, this.durationInSeconds, this.taskForm.controls['taskName'].value!, projectName, foundProject['color']);
     this.clearAllValues();
   }
 
   addNewTime(startDate: any, stopDate: any, date: any, durationDisplay: any, durationInSec: any, taskName: string, project: string, color: string) {
-    if(project === '') { project = "no-project"; }
     let startDispHrFormat = startDate.getHours() % 12 || 12;
     let startDispMinFormat = startDate.getMinutes() < 10 ? '0' + startDate.getMinutes() : startDate.getMinutes();
     let stopDispHrFormat = stopDate.getHours() % 12 || 12;

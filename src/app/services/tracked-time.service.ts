@@ -30,11 +30,4 @@ export class TrackedTimeService {
     return Object.entries(byDate).reverse();
     } else { return []; }
   }
-
-  // text color (dark blue): #0e1e37
-  // blue: #d6e6ff
-  // yellow: #fff8b4
-  // green: #d5ffb3
-  // pink: #ffddff
-  // orange: #fce2c7
 }

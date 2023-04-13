@@ -41,6 +41,12 @@
   }
 }
 
+.task-record-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .task-record-right {
   min-width: 230px;
   display: flex;

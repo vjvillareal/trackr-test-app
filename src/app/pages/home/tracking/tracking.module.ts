@@ -5,6 +5,7 @@ import { TimeTrackerComponent } from 'src/app/components/home/tracking/time-trac
 import { TrackedTimeComponent } from 'src/app/components/home/tracking/tracked-time/tracked-time.component';
 import { AngularMaterialModule } from 'src/app/angular-material.module';
 import { TrackedTimeByDayComponent } from 'src/app/components/home/tracking/tracked-time-by-day/tracked-time-by-day.component';
+import { ProjectFlagComponent } from 'src/app/components/generic/project-flag/project-flag.component';
 
 
 
@@ -13,7 +14,8 @@ import { TrackedTimeByDayComponent } from 'src/app/components/home/tracking/trac
     TrackingComponent,
     TimeTrackerComponent,
     TrackedTimeComponent,
-    TrackedTimeByDayComponent
+    TrackedTimeByDayComponent,
+    ProjectFlagComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { TrackedTimeByDayComponent } from 'src/app/components/home/tracking/trac
     TrackingComponent,
     TimeTrackerComponent,
     TrackedTimeComponent,
-    TrackedTimeByDayComponent
+    TrackedTimeByDayComponent,
+    ProjectFlagComponent
   ]
 })
 export class TrackingModule { }

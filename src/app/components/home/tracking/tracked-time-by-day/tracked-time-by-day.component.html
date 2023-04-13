@@ -4,9 +4,10 @@
     <p class="date-title">{{ totalDuration }}</p>
   </div>
   <div *ngFor="let task of timeRecord[1]" class="task-record">
-    <div>
+    <div class="task-record-left">
       <p class="task-title">{{ task.taskName }}</p>
       <p *ngIf="task.taskName == ''" class="task-title no-name">No description</p>
+      <app-project-flag *ngIf="task.project && task.project !== 'no-project'" [task]="task"></app-project-flag>
     </div>
     <div class="task-record-right">
       <div class="task-start-stop-time">
