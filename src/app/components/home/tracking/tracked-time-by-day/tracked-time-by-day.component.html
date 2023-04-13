@@ -1,6 +1,7 @@
 <div *ngFor="let record of timeRecord" class="task-container box-container">
   <div class="task-header">
-    <p class="date-title">{{ record[0] | date: 'EEEE, MMM, d'}}</p>
+    <p class="date-title">{{ record[0] | date: 'EEEE, MMM, d' }}</p>
+    <p class="date-title">{{ totalDuration }}</p>
   </div>
   <div *ngFor="let task of record[1]" class="task-record">
     <div>

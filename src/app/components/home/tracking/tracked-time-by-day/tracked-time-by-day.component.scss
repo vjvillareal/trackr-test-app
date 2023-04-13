@@ -35,6 +35,10 @@
   &:not(:last-child) {
     box-shadow: rgb(235 231 235) 0px -1px 0px 0px inset;
   }
+
+  &:hover {
+    background: rgb(250, 250, 250);
+  }
 }
 
 .task-record-right {

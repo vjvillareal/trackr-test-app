@@ -7,10 +7,18 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TrackedTimeByDayComponent implements OnInit {
   @Input() timeRecord: any;
+  totalDuration: string = "";
 
   constructor() { }
 
   ngOnInit(): void {
+    console.log('time record')
+    console.log(this.timeRecord)
+    let records = this.timeRecord[0][1];
+    let totalDuration = records.reduce((sum: any, rec: any) => {
+      return sum + rec['durationInSec']
+    }, 0);
+    this.totalDuration = new Date(1000 * totalDuration).toISOString().substring(11, 19);
   }
 
 }
