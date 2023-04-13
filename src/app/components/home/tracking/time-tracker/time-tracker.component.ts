@@ -50,11 +50,15 @@ export class TimeTrackerComponent implements OnInit {
   }
 
   addNewTime(startDate: any, stopDate: any, date: any, durationDisplay: any, durationInSec: any, taskName: string) {
+    let startDispHrFormat = startDate.getHours() % 12 || 12;
+    let startDispMinFormat = startDate.getMinutes() < 10 ? '0' + startDate.getMinutes() : startDate.getMinutes();
+    let stopDispHrFormat = stopDate.getHours() % 12 || 12;
+    let stopDispMinFormat = stopDate.getMinutes() < 10 ? '0' + stopDate.getMinutes() : stopDate.getMinutes();
     let trackedObj = {
       "startDateObj": startDate,
       "stopDateObj": stopDate,
-      "startDateDisplay": `${startDate.getHours()}:${startDate.getMinutes()} ` + ((startDate.getHours() >= 12) ? "PM" : "AM"),
-      "stopDateDisplay": `${stopDate.getHours()}:${stopDate.getMinutes()} ` + ((stopDate.getHours() >= 12) ? "PM" : "AM"),
+      "startDateDisplay": `${startDispHrFormat}:${startDispMinFormat} ` + ((startDate.getHours() >= 12) ? "PM" : "AM"),
+      "stopDateDisplay": `${stopDispHrFormat}:${stopDispMinFormat} ` + ((stopDate.getHours() >= 12) ? "PM" : "AM"),
       "date": date,
       "durationDisplay": durationDisplay,
       "durationInSec": durationInSec,
