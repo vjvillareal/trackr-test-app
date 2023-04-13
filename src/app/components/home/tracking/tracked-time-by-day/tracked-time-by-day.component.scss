@@ -46,11 +46,16 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   font-size: 0.9rem;
 }
 
-.task-start-stop,
+// .task-start-stop-time {
+//   flex: 0 0 150px;
+//   
+// }
+
 .task-duration {
-  text-align: center;
+  flex: 0 0 85px;
+  text-align: right;
 }
