@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TrackedTimeService } from 'src/app/services/tracked-time.service';
 
 @Component({
   selector: 'app-tracked-time',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrackedTimeComponent implements OnInit {
 
-  constructor() { }
+  records: any;
+
+  constructor(
+    private _trackedTimeService: TrackedTimeService 
+  ) { }
 
   ngOnInit(): void {
+    this.records = this._trackedTimeService.getFromLocalStorage();
+    console.log(this.records)
   }
 
 }

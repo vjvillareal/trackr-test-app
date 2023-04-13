@@ -15,7 +15,6 @@ export class TimeTrackerComponent implements OnInit {
   durationInSeconds: number = 0;
   startTime: any;
   stopTime: any;
-  trackedTasks: any = [];
 
   taskForm = this._formBuilder.group({
     taskName: ['', Validators.required],
@@ -61,8 +60,7 @@ export class TimeTrackerComponent implements OnInit {
       "durationInSec": durationInSec,
       "taskName": taskName
     };
-    this.trackedTasks.push(trackedObj)
-    this._trackedTimeService.storeToLocalStorage(this.trackedTasks)
+    this._trackedTimeService.storeToLocalStorage(trackedObj);
   }
 
   clearAllValues() {

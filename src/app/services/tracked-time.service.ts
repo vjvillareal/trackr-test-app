@@ -8,10 +8,13 @@ export class TrackedTimeService {
   constructor() { }
 
   storeToLocalStorage(records: any) {
-    localStorage.setItem("records", JSON.stringify(records));
+    let savedRecords = this.getFromLocalStorage();
+    savedRecords.push(records);
+    localStorage.setItem("records", JSON.stringify(savedRecords));
   }
 
-  getFromLocalStorate() {
-    const tracks = localStorage.getItem("records");
+  getFromLocalStorage() {
+    const record = localStorage.getItem("records") as string;
+    return record !== null ? JSON.parse(record) : [];
   }
 }
