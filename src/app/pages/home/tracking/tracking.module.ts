@@ -6,6 +6,7 @@ import { TrackedTimeComponent } from 'src/app/components/home/tracking/tracked-t
 import { AngularMaterialModule } from 'src/app/angular-material.module';
 import { TrackedTimeByDayComponent } from 'src/app/components/home/tracking/tracked-time-by-day/tracked-time-by-day.component';
 import { ProjectFlagComponent } from 'src/app/components/generic/project-flag/project-flag.component';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 
 
@@ -19,7 +20,8 @@ import { ProjectFlagComponent } from 'src/app/components/generic/project-flag/pr
   ],
   imports: [
     CommonModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    PipesModule
   ],
   exports: [
     TrackingComponent,
