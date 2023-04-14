@@ -10,8 +10,8 @@ This is a simple and easy-to-use time tracking app suited to people who are not 
 
 ## Instructions
 
-1. Make sure you have Node Package Manager installed. You can check the version of npm using `node --version`.
+1. Make sure you have Node Package Manager installed. You can check the version of npm by running the command in your terminal: `node --version`.
 2. Install Angular CLI. Run command `npm install -g @angular/cli`.
-3. Create a folder. Open your CLI and clone the project from GitHub `git clone https://github.com/vjvillareal/trackr-test-app.git`, then navigate to folder your `cd folder-name`.
+3. Create a folder. Open CLI from the folder and clone the project from GitHub `git clone https://github.com/vjvillareal/trackr-test-app.git`, then navigate to cloned folder `cd repo-name`.
 4. Install npm packages. Run `npm install`.
 5. Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
