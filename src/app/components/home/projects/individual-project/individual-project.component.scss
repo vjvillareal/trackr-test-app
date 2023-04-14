@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 1.5rem;
+  flex-wrap: wrap;
 }
 
 .project-title {
@@ -17,6 +18,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
+  flex-wrap: wrap;
 }
 
 .total-duration {

@@ -16,8 +16,17 @@ export class TimeTrackerComponent implements OnInit {
   startTime: any;
   stopTime: any;
 
+  manualTime: boolean = false;
+  autoTime: boolean = true;
+
   taskForm = this._formBuilder.group({
     taskName: ['', Validators.required],
+    project: ['', Validators.required]
+  });
+
+  manualTimeForm = this._formBuilder.group({
+    startTime: ['', Validators.required],
+    stopTime: ['', Validators.required],
     project: ['', Validators.required]
   });
 
@@ -103,5 +112,27 @@ export class TimeTrackerComponent implements OnInit {
       this.hasProject = true;
       this.taskForm.patchValue({ project: "" })
     } else { this.hasProject = false; }
+  }
+
+  toggleAutoTime() {
+    this.manualTime = false;
+    this.autoTime = true;
+  }
+
+  toggleManualTime() {
+    this.manualTime = true;
+    this.autoTime = false;
+  }
+
+  getTimeValue() {
+    console.log(this.manualTimeForm.controls['startTime'].value)
+    console.log(this.manualTimeForm.controls['stopTime'].value)
+    var timeStart = this.manualTimeForm.controls['startTime'].value;
+    var secondsStart = new Date('1970-01-01T' + timeStart + 'Z').getTime() / 1000;
+    var timeStop = this.manualTimeForm.controls['stopTime'].value;
+    var secondsStop = new Date('1970-01-01T' + timeStop + 'Z').getTime() / 1000;
+    console.log(secondsStart)
+    console.log(secondsStop)
+    console.log(secondsStop - secondsStart)
   }
 }

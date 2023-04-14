@@ -1,20 +1,35 @@
-<div class="time-tracker-container box-container" [formGroup]="taskForm">
-  <input type="text" class="custom-input-form" formControlName="taskName" placeholder="What are you working on?">
-  <div class="icon-btn-container" [formGroup]="taskForm">
-    <mat-icon *ngIf="hasProject" class="icon-btn" (click)="openSelect(selectRef)">folder</mat-icon>
-    <mat-select class="no-arrow-select custom-select" #selectRef formControlName="project" (selectionChange)="getProjectValue()">
-      <mat-option *ngFor="let food of projects" [value]="food.value">
-        {{ food.viewValue }}
-      </mat-option>
-    </mat-select>
-  </div>
-  <p class="time-text">
-    {{ _timeTrackerService.currentlyTracking }}
-  </p>
-  <div *ngIf="start" class="toggle-btn-container" (click)="startTimer()">
-    <mat-icon  class="icon-play-btn">play_arrow</mat-icon>
-  </div>
-  <div *ngIf="stop" class="toggle-btn-container" (click)="stopTimer()">
-    <mat-icon class="icon-play-btn">stop</mat-icon>
+<div class="time-tracker-container box-container">
+  <ng-container [formGroup]="taskForm">
+    <input type="text" class="custom-input-form" formControlName="taskName" placeholder="What are you working on?">
+    <div class="icon-btn-container" [formGroup]="taskForm">
+      <mat-icon *ngIf="hasProject" class="icon-btn" (click)="openSelect(selectRef)">folder</mat-icon>
+      <mat-select class="no-arrow-select custom-select" #selectRef formControlName="project" (selectionChange)="getProjectValue()">
+        <mat-option *ngFor="let project of projects" [value]="project.value">
+          {{ project.viewValue }}
+        </mat-option>
+      </mat-select>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="manualTime" [formGroup]="manualTimeForm">
+    <input type="time" formControlName="startTime" class="custom-time-input">
+    <input type="time" formControlName="stopTime" class="custom-time-input">
+    <div class="toggle-btn-container" (click)="startTimer()">
+      <mat-icon  class="icon-play-btn">add</mat-icon>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="autoTime">
+    <p class="time-text">
+      {{ _timeTrackerService.currentlyTracking }}
+    </p>
+    <div *ngIf="start" class="toggle-btn-container" (click)="startTimer()">
+      <mat-icon  class="icon-play-btn">play_arrow</mat-icon>
+    </div>
+    <div *ngIf="stop" class="toggle-btn-container" (click)="stopTimer()">
+      <mat-icon class="icon-play-btn">stop</mat-icon>
+    </div>
+  </ng-container>
+  <div class="tracker-options">
+    <mat-icon class="time-tracker-option-icon" (click)="toggleAutoTime()">access_time</mat-icon>
+    <mat-icon class="time-tracker-option-icon" (click)="toggleManualTime()">add</mat-icon>
   </div>
 </div>

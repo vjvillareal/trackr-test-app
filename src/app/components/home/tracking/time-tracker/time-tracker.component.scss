@@ -35,8 +35,8 @@
 }
 
 .time-text {
-  margin: 0 0.75rem;
-  margin-left: 0.5rem;
+  margin: 0 0.5rem;
+  margin-left: 0.25rem;
   font-size: 1.25rem;
   font-weight: 500;
   width: 100px;
@@ -63,4 +63,33 @@
   width: 26px;
   height: 26px;
   color: white;
+}
+
+.tracker-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-left: 6px;
+}
+
+.time-tracker-option-icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  width: 14px;
+  height: 14px;
+  color: white;
+  padding: 0.15rem;
+  border-radius: 50%;
+  margin: 2px 0;
+  background: #4d5472;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background: #000b36;
+    cursor: pointer;
+  }
 }
