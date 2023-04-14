@@ -152,9 +152,21 @@ div[data-lastpass-icon-root] {
 } 
 
 .mat-select-panel {
-  border-radius: 8px;
-  box-shadow: rgb(0 0 0 / 9%) 0px 1px 4px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.75rem !important;
+  box-shadow: rgb(0 0 0 / 9%) 0px 1px 4px !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+.mat-option-text,
+.mat-select-value-text {
+  font-size: 0.9rem;
+}
+
+.mat-select-value-text {
+  background: #f6f8fa;
+  padding: 0.15rem 0.4rem;
+  font-weight: 500;
+  border-radius: 0.3rem;
 }
 
 // ALL ANGULAR MATERIAL CUSTOM CSS - END
