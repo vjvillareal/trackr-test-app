@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { first } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -42,5 +43,16 @@ export class TrackedTimeService {
     }, []);
     return Object.entries(byProject).reverse();
     } else { return []; }
+  }
+
+  getRecordThisWeek() {
+    let data = this.fetchFromLocalStorage();
+    const today = new Date();
+    const firstDay = new Date(today.setDate(today.getDate() - today.getDay() + 1));
+    const lastDay = new Date(today.setDate(today.getDate() - today.getDay() + 7));
+    let thisWeek = data.filter((rec: any) => {
+      return new Date(rec['date']).getDate() >= firstDay.getDate() && new Date(rec['date']).getDate() <= lastDay.getDate();
+    });
+    return thisWeek;
   }
 }

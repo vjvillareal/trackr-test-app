@@ -11,7 +11,6 @@ export class ProjectReportComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.projectRecords)
   }
 
 }
