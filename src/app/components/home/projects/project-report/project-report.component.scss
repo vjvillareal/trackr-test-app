@@ -17,3 +17,16 @@
   opacity: 0.5;
   font-weight: 500;
 }
+
+.project-time-container {
+  min-width: 230px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.total-duration {
+  flex: 0 0 85px;
+  text-align: right;
+}

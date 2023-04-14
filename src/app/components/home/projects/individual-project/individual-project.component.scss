@@ -10,3 +10,16 @@
   margin: 0;
   font-size: 0.9rem;
 }
+
+.project-time-container {
+  min-width: 230px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.total-duration {
+  flex: 0 0 85px;
+  text-align: right;
+}

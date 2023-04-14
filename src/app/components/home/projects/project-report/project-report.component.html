@@ -1,7 +1,10 @@
 <div class="project-report-container box-container">
   <div class="report-header">
     <span class="report-header-text">Project Title</span>
-    <span class="report-header-text">Duration</span>
+    <div class="project-time-container">
+      <span class="report-header-text">This Week</span>
+      <span class="report-header-text total-duration">Duration</span>
+    </div>
   </div>
   <app-individual-project *ngFor="let project of projectRecords" [project]="project"></app-individual-project>
 </div>

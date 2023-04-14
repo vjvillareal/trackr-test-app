@@ -1,4 +1,7 @@
 <div class="project-container">
   <span class="project-title">{{ project[0] | cleanProjectFlagLabel | titlecase }}</span>
-  <span class="report-header-text">{{ totalDuration }}</span>
+  <div class="project-time-container">
+    <span class="report-header-text">{{ totalWeekDuration }}</span>
+    <span class="report-header-text total-duration">{{ totalDuration }}</span>
+  </div>
 </div>

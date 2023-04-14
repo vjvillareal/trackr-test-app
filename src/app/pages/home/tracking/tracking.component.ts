@@ -9,7 +9,7 @@ import { TrackedTimeService } from 'src/app/services/tracked-time.service';
 export class TrackingComponent implements OnInit {
 
   records: any = [];
-  totalWeekDuration: string = "";
+  totalWeekDuration: string = "00:00:00";
 
   constructor(
     private _trackedTimeService: TrackedTimeService

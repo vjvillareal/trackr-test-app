@@ -51,9 +51,24 @@ export class TrackedTimeService {
     const today = new Date();
     const firstDay = new Date(today.setDate(today.getDate() - today.getDay() + 1));
     const lastDay = new Date(today.setDate(today.getDate() - today.getDay() + 7));
-    let thisWeek = data.filter((rec: any) => {
-      return new Date(rec['date']).getDate() >= firstDay.getDate() && new Date(rec['date']).getDate() <= lastDay.getDate();
-    });
-    return thisWeek;
+    if(data.length >= 1) {
+      let thisWeek = data.filter((rec: any) => {
+        return new Date(rec['date']).getDate() >= firstDay.getDate() && new Date(rec['date']).getDate() <= lastDay.getDate();
+      });
+      return thisWeek;
+      } else { return []; }
+  }
+
+  getThisWeekByProject() {
+    let data = this.getRecordThisWeek();
+    if(data.length >= 1) {
+      let byProject = data.reduce((byProject: any, item: any) => {
+        let project = (byProject[item.project] || []);
+        project.push(item);
+        byProject[item.project] = project;
+        return byProject;
+      }, []);
+      return Object.entries(byProject).reverse();
+      } else { return []; }
   }
 }
