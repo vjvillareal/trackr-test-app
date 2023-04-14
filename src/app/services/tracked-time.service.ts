@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { first } from 'rxjs';
+import { first, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TrackedTimeService {
+  ifNewDataAdded: Subject<Object> = new Subject<Object>();
 
   constructor() { }
 

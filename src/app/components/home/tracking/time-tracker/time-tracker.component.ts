@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { TimeTrackerService } from 'src/app/services/time-tracker.service';
 import { TrackedTimeService } from 'src/app/services/tracked-time.service';
@@ -62,6 +62,7 @@ export class TimeTrackerComponent implements OnInit {
     });
     this.addNewTime(this.startTime, this.stopTime, this.startTime.toLocaleDateString("en-US"), durationDisplay, this.durationInSeconds, this.taskForm.controls['taskName'].value!, projectName, foundProject['color']);
     this.clearAllValues();
+    this._trackedTimeService.ifNewDataAdded.next(true);
   }
 
   addNewTime(startDate: any, stopDate: any, date: any, durationDisplay: any, durationInSec: any, taskName: string, project: string, color: string) {
@@ -89,6 +90,8 @@ export class TimeTrackerComponent implements OnInit {
     this.startTime = null;
     this.stopTime = null;
     this.taskForm.patchValue({ taskName: "" });
+    this.taskForm.patchValue({ project: "" });
+    this.hasProject = true;
   }
 
   openSelect(selectRef: any) {

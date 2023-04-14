@@ -16,6 +16,13 @@ export class TrackedTimeComponent implements OnInit {
 
   ngOnInit(): void {
     this.records = this._trackedTimeService.getGroupedByDate();
+    this.refreshOnInit();
+  }
+
+  refreshOnInit() {
+    this._trackedTimeService.ifNewDataAdded.subscribe((data) => {
+      this.ngOnInit();
+    });
   }
 
 }

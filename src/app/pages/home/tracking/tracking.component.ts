@@ -21,6 +21,13 @@ export class TrackingComponent implements OnInit {
       return sum + rec['durationInSec']
     }, 0);
     this.totalWeekDuration = new Date(1000 * totalDuration).toISOString().substring(11, 19);
+    this.refreshOnInit();
+  }
+
+  refreshOnInit() {
+    this._trackedTimeService.ifNewDataAdded.subscribe((data) => {
+      this.ngOnInit();
+    });
   }
 
 }
