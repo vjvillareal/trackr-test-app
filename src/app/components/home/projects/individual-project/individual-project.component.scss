@@ -5,6 +5,10 @@
   justify-content: space-between;
   padding: 0.5rem 1.5rem;
   flex-wrap: wrap;
+
+  &:hover {
+    background: rgb(250, 250, 250);
+  }
 }
 
 .project-title {

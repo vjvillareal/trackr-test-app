@@ -11,9 +11,9 @@
     </div>
   </ng-container>
   <ng-container *ngIf="manualTime" [formGroup]="manualTimeForm">
-    <input type="time" formControlName="startTime" class="custom-time-input">
-    <input type="time" formControlName="stopTime" class="custom-time-input">
-    <div class="toggle-btn-container" (click)="startTimer()">
+    <input type="time" formControlName="startTimeManual" class="custom-time-input">
+    <input type="time" formControlName="stopTimeManual" class="custom-time-input">
+    <div class="toggle-btn-container" (click)="addManualTime()">
       <mat-icon  class="icon-play-btn">add</mat-icon>
     </div>
   </ng-container>

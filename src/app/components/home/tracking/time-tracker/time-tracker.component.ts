@@ -25,9 +25,8 @@ export class TimeTrackerComponent implements OnInit {
   });
 
   manualTimeForm = this._formBuilder.group({
-    startTime: ['', Validators.required],
-    stopTime: ['', Validators.required],
-    project: ['', Validators.required]
+    startTimeManual: ['', Validators.required],
+    stopTimeManual: ['', Validators.required]
   });
 
   projects: any = [
@@ -75,10 +74,12 @@ export class TimeTrackerComponent implements OnInit {
   }
 
   addNewTime(startDate: any, stopDate: any, date: any, durationDisplay: any, durationInSec: any, taskName: string, project: string, color: string) {
-    let startDispHrFormat = startDate.getHours() % 12 || 12;
+    let startDispHrFormat = (startDate.getHours() % 12 || 12) < 10 ? '0' + (startDate.getHours() % 12 || 12) : (startDate.getHours() % 12 || 12) ;
     let startDispMinFormat = startDate.getMinutes() < 10 ? '0' + startDate.getMinutes() : startDate.getMinutes();
-    let stopDispHrFormat = stopDate.getHours() % 12 || 12;
+
+    let stopDispHrFormat = (stopDate.getHours() % 12 || 12) < 10 ? '0' + (stopDate.getHours() % 12 || 12) : (stopDate.getHours() % 12 || 12);
     let stopDispMinFormat = stopDate.getMinutes() < 10 ? '0' + stopDate.getMinutes() : stopDate.getMinutes();
+
     let trackedObj = {
       "startDateObj": startDate,
       "stopDateObj": stopDate,
@@ -124,15 +125,48 @@ export class TimeTrackerComponent implements OnInit {
     this.autoTime = false;
   }
 
-  getTimeValue() {
-    console.log(this.manualTimeForm.controls['startTime'].value)
-    console.log(this.manualTimeForm.controls['stopTime'].value)
-    var timeStart = this.manualTimeForm.controls['startTime'].value;
-    var secondsStart = new Date('1970-01-01T' + timeStart + 'Z').getTime() / 1000;
-    var timeStop = this.manualTimeForm.controls['stopTime'].value;
-    var secondsStop = new Date('1970-01-01T' + timeStop + 'Z').getTime() / 1000;
-    console.log(secondsStart)
-    console.log(secondsStop)
-    console.log(secondsStop - secondsStart)
+  addManualTime() {
+    let projectName = this.taskForm.controls['project'].value!;
+    if(projectName === '') { projectName = "no-project"; }
+    let foundProject = this.projects.find((proj: any) => {
+      return proj['value'] == projectName;
+    });
+
+    // Get manual input (START time), then convert to 12-hr format
+    let timeStart = this.manualTimeForm.controls['startTimeManual'].value;
+    let timeStartSplit = timeStart!.split(":");
+    let startDispHrFormat = (parseInt(timeStartSplit[0]) % 12 || 12) < 10 ? '0' + (parseInt(timeStartSplit[0]) % 12 || 12) : (parseInt(timeStartSplit[0]) % 12 || 12) ;
+    let startDispMinFormat = parseInt(timeStartSplit[1]) < 10 ? '0' + parseInt(timeStartSplit[1]) : parseInt(timeStartSplit[1]);
+
+    // Get manual input (STOP time), then convert to 12-hr format
+    let timeStop = this.manualTimeForm.controls['stopTimeManual'].value;
+    let timeStopSplit = timeStop!.split(":");
+    let stopDispHrFormat = (parseInt(timeStopSplit[0]) % 12 || 12) < 10 ? '0' + (parseInt(timeStopSplit[0]) % 12 || 12) : (parseInt(timeStopSplit[0]) % 12 || 12) ;
+    let stopDispMinFormat = parseInt(timeStopSplit[1]) < 10 ? '0' + parseInt(timeStopSplit[1]) : parseInt(timeStopSplit[1]);
+
+    let secondsStart = new Date('1970-01-01T' + timeStart + 'Z').getTime() / 1000;
+    let secondsStop = new Date('1970-01-01T' + timeStop + 'Z').getTime() / 1000;
+
+    let manualTrackedObj = {
+      "startDateObj": new Date(),
+      "stopDateObj": new Date(),
+      "startDateDisplay": `${startDispHrFormat}:${startDispMinFormat} ` + ((parseInt(timeStartSplit[0]) >= 12) ? "PM" : "AM"),
+      "stopDateDisplay": `${stopDispHrFormat}:${stopDispMinFormat} ` + ((parseInt(timeStopSplit[0]) >= 12) ? "PM" : "AM"),
+      "date": new Date().toLocaleDateString("en-US"),
+      "durationDisplay": new Date(1000 * (secondsStop - secondsStart)).toISOString().substring(11, 19),
+      "durationInSec": secondsStop - secondsStart,
+      "taskName": this.taskForm.controls['taskName'].value!,
+      "project": projectName,
+      "projectColor": foundProject['color']
+    };
+    this.clearAllValuesManual();
+    this._trackedTimeService.storeToLocalStorage(manualTrackedObj);
+    this._trackedTimeService.ifNewDataAdded.next(true);
+  }
+
+  clearAllValuesManual() {
+    this.taskForm.patchValue({ taskName: "", project: "" });
+    this.manualTimeForm.patchValue({ startTimeManual: "", stopTimeManual: "" });
+    this.hasProject = true;
   }
 }
